@@ -86,16 +86,18 @@ try:
         total, porcentaje, personas
     )
 
-    print("\n--- RESULTADOS ---")
-    print(f"Propina ({porcentaje}%): {propina:.2f}")
-    print(f"Total a pagar: {total_con_propina:.2f}")
-    print(f"Monto por persona: {por_persona:.2f}")
+    print(f"Propina ({porcentaje}%): ${propina:.2f}")
+    print(f"Total a pagar: ${total_con_propina:.2f}")
+    print(f"Monto por persona: ${por_persona:.2f}")
 
 except ValueError as e:
     print("Error:", e)
 
 except Exception as e:
     print("Ocurrió un error inesperado:", e)
+
+
+
 
 
 
