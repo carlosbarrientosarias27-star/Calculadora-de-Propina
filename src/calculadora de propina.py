@@ -125,42 +125,57 @@ def dividir_cuenta(total_cuenta, propina, personas):
     return total_final, monto_por_persona
 
 
+def mostrar_menu():
+    print("\n===== CALCULADORA DE PROPINA =====")
+    print("1. Calcular propina por porcentaje")
+    print("2. Calcular propina con monto fijo")
+    print("3. Salir")
+    print("===================================")
+
+
 # Programa principal
-try:
-    total = float(input("Ingrese el total de la cuenta: "))
+while True:
+    try:
+        mostrar_menu()
+        opcion = input("Seleccione una opción (1-3): ")
+
+        if opcion == "3":
+            print("Gracias por usar la calculadora. ¡Hasta luego!")
+            break
+
+        total = float(input("Ingrese el total de la cuenta: "))
+        personas = int(input("Ingrese la cantidad de personas: "))
+
+        if opcion == "1":
+            porcentaje = float(input("Ingrese el porcentaje de propina: "))
+            propina = calcular_propina_porcentaje(total, porcentaje)
+
+        elif opcion == "2":
+            monto_fijo = float(input("Ingrese el monto fijo de propina: "))
+            propina = calcular_propina_fija(total, monto_fijo)
+
+        else:
+            print("Opción inválida. Intente nuevamente.")
+            continue
+
+        total_con_propina, por_persona = dividir_cuenta(
+            total, propina, personas
+        )
+
+        print("\n----- RESULTADOS -----")
+        print(f"Propina: ${propina:.2f}")
+        print(f"Total a pagar: ${total_con_propina:.2f}")
+        print(f"Monto por persona: ${por_persona:.2f}")
+        print("----------------------")
+
+    except ValueError as e:
+        print("Error:", e)
+
+    except Exception as e:
+        print("Ocurrió un error inesperado:", e)
+
+
     
-    print("\nSeleccione tipo de propina:")
-    print("1. Porcentaje")
-    print("2. Monto fijo")
-    
-    opcion = input("Opción (1 o 2): ")
-
-    if opcion == "1":
-        porcentaje = float(input("Ingrese el porcentaje de propina: "))
-        propina = calcular_propina_porcentaje(total, porcentaje)
-    
-    elif opcion == "2":
-        monto_fijo = float(input("Ingrese el monto fijo de propina: "))
-        propina = calcular_propina_fija(total, monto_fijo)
-    
-    else:
-        raise ValueError("Opción inválida.")
-
-    personas = int(input("Ingrese la cantidad de personas: "))
-
-    total_con_propina, por_persona = dividir_cuenta(
-        total, propina, personas
-    )
-
-    print(f"\nPropina: ${propina:.2f}")
-    print(f"Total a pagar: ${total_con_propina:.2f}")
-    print(f"Monto por persona: ${por_persona:.2f}")
-
-except ValueError as e:
-    print("Error:", e)
-
-except Exception as e:
-    print("Ocurrió un error inesperado:", e)
 
 
 
