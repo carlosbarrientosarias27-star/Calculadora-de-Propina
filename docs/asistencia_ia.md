@@ -6,16 +6,24 @@ Calculadora de Propina en Python
 ## Descripción
 Este proyecto fue desarrollado como práctica de funciones, validaciones y manejo de errores en Python.
 
-## Tipo de Asistencia Recibida
+## Tipo de asistencia recibida
 
-Se utilizó Inteligencia Artificial como apoyo para:
+- Apoyo en la estructuración del código.
+- Mejora en la organización por secciones (validaciones, lógica de negocio, interfaz).
+- Sugerencias de buenas prácticas (tipado con typing, manejo de excepciones).
+- Redacción de documentación y comentarios descriptivos.
+- Revisión de claridad y legibilidad del programa. 
 
-- Agregar docstrings a todas las funciones.
-- Mejorar validaciones de entrada.
-- Eliminar código duplicado.
-- Estructurar el programa usando función main().
-- Mejorar organización y claridad del código.
-- Crear documentación técnica básica.
+## Nivel de intervención
+
+- La IA fue utilizada como herramienta de apoyo.
+- El diseño lógico, decisiones de implementación y validación final fueron realizados por el autor.
+- El código fue revisado, comprendido y adaptado manualmente antes de su entrega.
+
+## Responsabilidad académica
+
+- Se comprende el funcionamiento total del programa.
+- Se asume la responsabilidad sobre el contenido entregado.
 
 ## Decisiones tomadas por el estudiante
 
@@ -35,4 +43,11 @@ Se utilizó Inteligencia Artificial como apoyo para:
 ## Conclusión
 
 La IA fue utilizada como herramienta de apoyo y mejora del código,
-manteniendo la comprensión y participación activa en el desarrollo.
+manteniendo la comprensión y participación activa en el desarrollo. 
+
+## Documentación técnica
+
+Se recibió apoyo en la redacción del docstring principal del módulo
+(Descripción, Requisitos y estructura formal de documentación).
+El contenido fue revisado y adaptado manualmente antes de su inclusión
+en el archivo principal del programa.

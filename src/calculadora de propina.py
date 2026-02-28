@@ -1,189 +1,70 @@
-def calcular_propina(total_cuenta):
-    """
-    Calcula el 10% de propina sobre el total de la cuenta.
-    """
-    propina = total_cuenta * 0.10
-    return propina 
-
-
-def calcular_propina(total_cuenta, porcentaje):
-    """
-    Calcula la propina según el porcentaje indicado.
-    """
-    if porcentaje <= 0:
-        raise ValueError("El porcentaje debe ser un número positivo mayor que 0.")
-    
-    return total_cuenta * (porcentaje / 100)
-
-
-def dividir_cuenta(total_cuenta, porcentaje_propina, personas):
-    """
-    Calcula:
-    - Propina
-    - Total con propina
-    - Monto por persona
-    """
-    if personas <= 0:
-        raise ValueError("La cantidad de personas debe ser mayor que 0.")
-    
-    propina = calcular_propina(total_cuenta, porcentaje_propina)
-    total_final = total_cuenta + propina
-    monto_por_persona = total_final / personas
-
-    return propina, total_final, monto_por_persona
-
-
-# Prueba manual
-total = 1000
-porcentaje = 10
-personas = 4
-
-propina, total_con_propina, por_persona = dividir_cuenta(total, porcentaje, personas)
-
-print("Total de la cuenta:", total)
-print(f"Propina ({porcentaje}%):", propina)
-print("Total a pagar:", total_con_propina)
-print("Monto por persona:", por_persona) 
-
-
-def calcular_propina(total_cuenta, porcentaje):
-    """
-    Calcula la propina según el porcentaje indicado.
-    """
-    if total_cuenta <= 0:
-        raise ValueError("El total de la cuenta debe ser un número positivo.")
-    
-    if porcentaje <= 0:
-        raise ValueError("El porcentaje debe ser un número positivo mayor que 0.")
-    
-    return total_cuenta * (porcentaje / 100)
-
-
-def dividir_cuenta(total_cuenta, porcentaje_propina, personas):
-    """
-    Calcula:
-    - Propina
-    - Total con propina
-    - Monto por persona
-    """
-    if not isinstance(personas, int) or personas <= 0:
-        raise ValueError("La cantidad de personas debe ser un entero positivo.")
-    
-    propina = calcular_propina(total_cuenta, porcentaje_propina)
-    total_final = total_cuenta + propina
-    monto_por_persona = total_final / personas
-
-    return propina, total_final, monto_por_persona
-
-
-# Programa principal con manejo de errores
-try:
-    total = float(input("Ingrese el total de la cuenta: "))
-    porcentaje = float(input("Ingrese el porcentaje de propina: "))
-    personas = int(input("Ingrese la cantidad de personas: "))
-
-    propina, total_con_propina, por_persona = dividir_cuenta(
-        total, porcentaje, personas
-    )
-
-    print(f"Propina ({porcentaje}%): ${propina:.2f}")
-    print(f"Total a pagar: ${total_con_propina:.2f}")
-    print(f"Monto por persona: ${por_persona:.2f}")
-
-except ValueError as e:
-    print("Error:", e)
-
-except Exception as e:
-    print("Ocurrió un error inesperado:", e)
-
-
 """
 Calculadora de Propina
 
-Este programa permite calcular la propina de una cuenta
-ya sea por porcentaje o por monto fijo, además de dividir
-el total entre varias personas.
+Descripción:
+Programa interactivo que permite calcular la propina de una cuenta
+por porcentaje o monto fijo y dividir el total entre varias personas.
+
+Requisitos:
+- Python 3.x
 
 Autor: [Tu nombre]
-Fecha: [Fecha actual]
-Versión: 1.0
+Versión: 2.0
 """
 
+from typing import Tuple 
 
-def calcular_propina_porcentaje(total_cuenta, porcentaje):
-    """
-    Calcula la propina basada en un porcentaje del total.
 
-    Parámetros:
-        total_cuenta (float): Total de la cuenta.
-        porcentaje (float): Porcentaje de propina a aplicar.
+# ==============================
+# VALIDACIONES
+# ==============================
 
-    Retorna:
-        float: Monto calculado de la propina.
+def validar_total(total: float) -> None:
+    if total <= 0:
+        raise ValueError("El total de la cuenta debe ser un número positivo.")
 
-    Lanza:
-        ValueError: Si el total o el porcentaje son inválidos.
-    """
-    if total_cuenta <= 0:
-        raise ValueError("El total de la cuenta debe ser positivo.")
+
+def validar_personas(personas: int) -> None:
+    if not isinstance(personas, int) or personas <= 0:
+        raise ValueError("La cantidad de personas debe ser un entero positivo.")
+
+
+# ==============================
+# LÓGICA DE NEGOCIO
+# ==============================
+
+def calcular_propina_porcentaje(total: float, porcentaje: float) -> float:
+    validar_total(total)
+
     if porcentaje <= 0:
         raise ValueError("El porcentaje debe ser mayor que 0.")
 
-    return total_cuenta * (porcentaje / 100)
+    return total * (porcentaje / 100)
 
 
-def calcular_propina_fija(total_cuenta, monto_propina):
-    """
-    Devuelve un monto fijo como propina.
+def calcular_propina_fija(total: float, monto_propina: float) -> float:
+    validar_total(total)
 
-    Parámetros:
-        total_cuenta (float): Total de la cuenta.
-        monto_propina (float): Monto fijo de propina.
-
-    Retorna:
-        float: Monto de la propina.
-
-    Lanza:
-        ValueError: Si los valores son inválidos.
-    """
-    if total_cuenta <= 0:
-        raise ValueError("El total de la cuenta debe ser positivo.")
     if monto_propina < 0:
         raise ValueError("La propina no puede ser negativa.")
 
     return monto_propina
 
 
-def dividir_cuenta(total_cuenta, propina, personas):
-    """
-    Divide el total de la cuenta con propina entre varias personas.
+def dividir_cuenta(total: float, propina: float, personas: int) -> Tuple[float, float]:
+    validar_personas(personas)
 
-    Parámetros:
-        total_cuenta (float): Total original de la cuenta.
-        propina (float): Monto de la propina.
-        personas (int): Número de personas que pagan.
-
-    Retorna:
-        tuple:
-            total_final (float): Total con propina incluida.
-            monto_por_persona (float): Pago individual.
-
-    Lanza:
-        ValueError: Si la cantidad de personas es inválida.
-    """
-    if not isinstance(personas, int) or personas <= 0:
-        raise ValueError("La cantidad de personas debe ser un entero positivo.")
-
-    total_final = total_cuenta + propina
+    total_final = total + propina
     monto_por_persona = total_final / personas
 
     return total_final, monto_por_persona
 
 
-def mostrar_menu():
-    """
-    Muestra el menú principal del programa.
-    """
+# ==============================
+# INTERFAZ
+# ==============================
+
+def mostrar_menu() -> None:
     print("\n===== CALCULADORA DE PROPINA =====")
     print("1. Calcular propina por porcentaje")
     print("2. Calcular propina con monto fijo")
@@ -191,12 +72,19 @@ def mostrar_menu():
     print("===================================")
 
 
-# Programa principal
-def main():
-    """
-    Ejecuta el flujo principal del programa.
-    Maneja la interacción con el usuario y el control de errores.
-    """
+def obtener_float(mensaje: str) -> float:
+    return float(input(mensaje))
+
+
+def obtener_int(mensaje: str) -> int:
+    return int(input(mensaje))
+
+
+# ==============================
+# PROGRAMA PRINCIPAL
+# ==============================
+
+def main() -> None:
     while True:
         try:
             mostrar_menu()
@@ -206,28 +94,26 @@ def main():
                 print("Gracias por usar la calculadora. ¡Hasta luego!")
                 break
 
-            total = float(input("Ingrese el total de la cuenta: "))
-            personas = int(input("Ingrese la cantidad de personas: "))
+            total = obtener_float("Ingrese el total de la cuenta: ")
+            personas = obtener_int("Ingrese la cantidad de personas: ")
 
             if opcion == "1":
-                porcentaje = float(input("Ingrese el porcentaje de propina: "))
+                porcentaje = obtener_float("Ingrese el porcentaje de propina: ")
                 propina = calcular_propina_porcentaje(total, porcentaje)
 
             elif opcion == "2":
-                monto_fijo = float(input("Ingrese el monto fijo de propina: "))
-                propina = calcular_propina_fija(total, monto_fijo)
+                monto = obtener_float("Ingrese el monto fijo de propina: ")
+                propina = calcular_propina_fija(total, monto)
 
             else:
                 print("Opción inválida. Intente nuevamente.")
                 continue
 
-            total_con_propina, por_persona = dividir_cuenta(
-                total, propina, personas
-            )
+            total_final, por_persona = dividir_cuenta(total, propina, personas)
 
             print("\n----- RESULTADOS -----")
             print(f"Propina: ${propina:.2f}")
-            print(f"Total a pagar: ${total_con_propina:.2f}")
+            print(f"Total a pagar: ${total_final:.2f}")
             print(f"Monto por persona: ${por_persona:.2f}")
             print("----------------------")
 
@@ -240,13 +126,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-    
-
-
-
-
