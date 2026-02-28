@@ -5,7 +5,9 @@ Una aplicación en Python que calcula automáticamente la propina según el porc
 ---
 
 ## 📂 Estructura del Proyecto
-"""
+
+""" text 
+
 CALCULADORA-DE-PROPINA/
 │
 ├── docs/
@@ -16,5 +18,6 @@ CALCULADORA-DE-PROPINA/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-└── requirements.txt
+└── requirements.txt 
+
 """
