@@ -9,22 +9,42 @@ def calcular_propina(total_cuenta):
 def calcular_propina(total_cuenta, porcentaje):
     """
     Calcula la propina según el porcentaje indicado.
-    Valida que el porcentaje sea positivo.
     """
     if porcentaje <= 0:
         raise ValueError("El porcentaje debe ser un número positivo mayor que 0.")
     
-    propina = total_cuenta * (porcentaje / 100)
-    return propina
+    return total_cuenta * (porcentaje / 100)
+
+
+def dividir_cuenta(total_cuenta, porcentaje_propina, personas):
+    """
+    Calcula:
+    - Propina
+    - Total con propina
+    - Monto por persona
+    """
+    if personas <= 0:
+        raise ValueError("La cantidad de personas debe ser mayor que 0.")
+    
+    propina = calcular_propina(total_cuenta, porcentaje_propina)
+    total_final = total_cuenta + propina
+    monto_por_persona = total_final / personas
+
+    return propina, total_final, monto_por_persona
 
 
 # Prueba manual
 total = 1000
-porcentaje_propina = 10
+porcentaje = 10
+personas = 4
 
-resultado = calcular_propina(total, porcentaje_propina)
+propina, total_con_propina, por_persona = dividir_cuenta(total, porcentaje, personas)
 
 print("Total de la cuenta:", total)
-print(f"Propina ({porcentaje_propina}%):", resultado)
-print("Total a pagar:", total + resultado)
+print(f"Propina ({porcentaje}%):", propina)
+print("Total a pagar:", total_con_propina)
+print("Monto por persona:", por_persona)
+
+
+
 
