@@ -10,11 +10,20 @@ Una aplicación en Python que calcula automáticamente la propina según el porc
 CALCULADORA-DE-PROPINA/
 │
 ├── docs/
+│   ├── asistencia_ia.md
+│   └── Casos Edge.md
 │
 ├── src/
-│   └── calculadora de propina.py
+│   ├── __pycache__/
+│   ├── __init__.py
+│   └── calculadora_de_propina.py
+│
+├── test/
+│   ├── __init__.py
+│   └── test_calculadora_de_propina.py
 │
 ├── .gitignore
+├── Estructura en carpeta.md
 ├── LICENSE
 ├── README.md
 └── requirements.txt
