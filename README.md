@@ -64,23 +64,46 @@ Monto por persona: $143.75
 ## 🗂️ Estructura del proyecto
 
 ```
-calculadora_propina/
+CALCULADORA-DE-PROPINA/
 │
-├── main.py
+├── __pycache__/
+├── .qodo/
 │
 ├── core/
+│   ├── __pycache__/
 │   ├── __init__.py
-│   ├── validaciones.py
 │   ├── calculos.py
+│   └── validaciones.py
+│
+├── docs/
+│   ├── asistencia_ia.md
+│   └── Casos Edge.md
+│
+├── test/
+│   ├── __pycache__/
+│   │
+│   ├── core/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── test_calculos.py
+│   │   └── test_validaciones.py
+│   │
+│   └── ui/
+│       ├── __pycache__/
+│       ├── __init__.py
+│       ├── test_entradas.py
+│       └── test_menu.py
 │
 ├── ui/
+│   ├── __pycache__/
 │   ├── __init__.py
-│   ├── menu.py
 │   ├── entradas.py
+│   └── menu.py
 │
-└── README.md
-└── LICENSE
-└── .gitignore
+├── .gitignore
+├── LICENSE
+├── main.py
+├── README.md
 └── requirements.txt
 
 ```
