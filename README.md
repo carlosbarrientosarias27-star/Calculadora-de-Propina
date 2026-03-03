@@ -64,21 +64,25 @@ Monto por persona: $143.75
 ## 🗂️ Estructura del proyecto
 
 ```
-calculadora_de_propina.py
+calculadora_propina/
 │
-├── Validaciones
-│   ├── validar_total()
-│   └── validar_personas()
+├── main.py
 │
-├── Lógica de negocio
-│   ├── calcular_propina_porcentaje()
-│   ├── calcular_propina_fija()
-│   └── dividir_cuenta()
+├── core/
+│   ├── __init__.py
+│   ├── validaciones.py
+│   ├── calculos.py
 │
-└── Interfaz
-    ├── mostrar_menu()
-    ├── obtener_float()
-    └── obtener_int()
+├── ui/
+│   ├── __init__.py
+│   ├── menu.py
+│   ├── entradas.py
+│
+└── README.md
+└── LICENSE
+└── .gitignore
+└── requirements.txt
+
 ```
 
 ---
