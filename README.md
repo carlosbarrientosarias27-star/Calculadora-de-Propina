@@ -1,124 +1,108 @@
 # 🧾 Calculadora de Propina
 
-Programa interactivo en Python que permite calcular la propina de una cuenta —ya sea por porcentaje o monto fijo— y dividir el total entre varias personas.
+Una aplicación de escritorio desarrollada en Python que permite calcular propinas de forma rápida, sencilla e intuitiva. Ideal para dividir cuentas en restaurantes y gestionar pagos en grupo.
 
 ---
 
-## 📋 Descripción
+# 📋 Descripción
 
-La **Calculadora de Propina** es una herramienta de consola diseñada para facilitar el cálculo de propinas en restaurantes u otros servicios. Permite elegir entre dos métodos de cálculo y reparte automáticamente el monto total entre el número de comensales indicado.
-
----
-
-## ✨ Funcionalidades
-
-- **Propina por porcentaje:** Calcula la propina aplicando un porcentaje sobre el total de la cuenta.
-- **Propina con monto fijo:** Permite ingresar directamente el monto de la propina.
-- **División de cuenta:** Divide el total (cuenta + propina) entre el número de personas.
-- **Validación de entradas:** Maneja errores de entrada inválida con mensajes claros.
-- **Menú interactivo:** Interfaz de consola sencilla con opciones numeradas.
+**Calculadora de Propina** es una herramienta con interfaz gráfica que facilita el cálculo del monto de propina a dejar según el total de la cuenta, el porcentaje deseado y el número de comensales. Incluye lógica de negocio bien estructurada, utilidades de apoyo y una suite de pruebas automatizadas.
 
 ---
 
-## 🚀 Requisitos
-
-- Python 3.x
-
-No requiere librerías externas.
-
----
-
-## ▶️ Uso
-
-```bash
-python calculadora_de_propina.py
-```
-
-Al ejecutar el programa, se mostrará el siguiente menú:
+# 🗂️ Estructura del Proyecto
 
 ```
-===== CALCULADORA DE PROPINA =====
-1. Calcular propina por porcentaje
-2. Calcular propina con monto fijo
-3. Salir
-===================================
-```
-
-### Ejemplo de uso (opción 1 — porcentaje):
-
-```
-Seleccione una opción (1-3): 1
-Ingrese el total de la cuenta: 500
-Ingrese la cantidad de personas: 4
-Ingrese el porcentaje de propina: 15
-
------ RESULTADOS -----
-Propina: $75.00
-Total a pagar: $575.00
-Monto por persona: $143.75
-----------------------
-```
-
----
-
-## 🗂️ Estructura del proyecto
-
-```
-CALCULADORA-DE-PROPINA/
-│
-├── __pycache__/
-├── .qodo/
-│
-├── core/
-│   ├── __pycache__/
+Calculadora_Propina/
+├── app/
 │   ├── __init__.py
-│   ├── calculos.py
-│   └── validaciones.py
-│
+│   ├── logic.py         # Lógica principal de cálculo
+│   ├── ui.py            # Interfaz gráfica de usuario
+│   └── utils.py         # Funciones utilitarias
 ├── docs/
-│   ├── asistencia_ia.md
-│   └── Casos Edge.md
-│
+│   ├── asistencia_ia.md # Documentación de asistencia con IA
+│   └── Casos Edge.md    # Casos de prueba extremos
 ├── test/
-│   ├── __pycache__/
-│   │
-│   ├── core/
-│   │   ├── __pycache__/
-│   │   ├── __init__.py
-│   │   ├── test_calculos.py
-│   │   └── test_validaciones.py
-│   │
-│   └── ui/
-│       ├── __pycache__/
-│       ├── __init__.py
-│       ├── test_entradas.py
-│       └── test_menu.py
-│
-├── ui/
-│   ├── __pycache__/
-│   ├── __init__.py
-│   ├── entradas.py
-│   └── menu.py
-│
+│   ├── app/
+│   │   ├── test_logic.py   # Tests unitarios de lógica
+│   │   ├── test_ui.py      # Tests de la interfaz
+│   │   └── test_utils.py   # Tests de utilidades
+│   └── test_main.py        # Tests de integración
+├── main.py              # Punto de entrada de la aplicación
+├── requirements.txt     # Dependencias del proyecto
 ├── .gitignore
-├── LICENSE
-├── main.py
-├── README.md
-└── requirements.txt
-
+└── LICENSE
 ```
 
 ---
 
-## 👤 Autor
+# ✨ Funcionalidades
 
-- **Autor:** [Tu nombre]
-- **Versión:** 2.0
+- Cálculo automático del monto de propina según porcentaje personalizable
+- División equitativa de la cuenta entre varios comensales
+- Interfaz gráfica clara e intuitiva
+- Validación de entradas del usuario
+- Cobertura de casos extremos (montos cero, porcentajes negativos, etc.)
+
+---
+
+# 🚀 Instalación y uso
+
+## Requisitos previos
+
+- Python 3.8 o superior
+- pip
+
+## Instalación
+
+```
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/Calculadora_Propina.git
+cd Calculadora_Propina
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+## Ejecutar la aplicación
+
+```
+python main.py
+```
+
+---
+
+## 🧪 Pruebas
+
+El proyecto cuenta con una suite completa de pruebas unitarias e integración:
+
+```
+# Ejecutar todos los tests
+python -m pytest test/
+
+# Ejecutar tests con detalle
+python -m pytest test/ -v
+```
+
+---
+
+## 📖 Documentación
+
+Consulta la carpeta `docs/` para información adicional:
+
+- **`asistencia_ia.md`** — Notas sobre el uso de inteligencia artificial en el desarrollo.
+- **`Casos Edge.md`** — Descripción y análisis de casos límite contemplados.
+
+---
+
+## 🛠️ Tecnologías
+
+- **Python** — Lenguaje principal
+
+---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT especificada en el archivo [LICENSE](LICENSE).
+Este proyecto está bajo los términos descritos en el archivo [LICENSE](LICENSE MIT).
 
 ---
-
-*Desarrollado en Python*
