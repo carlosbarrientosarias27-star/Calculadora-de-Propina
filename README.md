@@ -4,7 +4,7 @@ Repositorio que contiene la aplicación **Calculadora_Propina** junto con su **P
 
 ---
 
-## 📁 Estructura del Repositorio
+# 📁 Estructura del Repositorio
 
 ```
 ├── Calculadora_Propina/
@@ -38,15 +38,15 @@ Repositorio que contiene la aplicación **Calculadora_Propina** junto con su **P
 
 ---
 
-## 📦 Calculadora_Propina
+# 📦 Calculadora_Propina
 
 Aplicación principal para calcular propinas de forma sencilla e intuitiva.
 
-### Descripción
+## Descripción
 
 La app permite al usuario introducir el importe de una factura y calcular automáticamente la propina según el porcentaje deseado, con distintas opciones de reparto entre comensales.
 
-### Módulos principales
+## Módulos principales
 
 | Módulo | Descripción |
 |--------|-------------|
@@ -55,26 +55,23 @@ La app permite al usuario introducir el importe de una factura y calcular autom�
 | `app/utils.py` | Funciones auxiliares reutilizables |
 | `main.py` | Punto de entrada de la aplicación |
 
-### Instalación
+## Instalación
 
-```bash
+```
 # Clona el repositorio
 git clone <url-del-repositorio>
 cd Calculadora_Propina
 
-# Instala las dependencias
-pip install -r requirements.txt
+
+## Uso
+
 ```
-
-### Uso
-
-```bash
 python main.py
 ```
 
-### Tests
+## Tests
 
-```bash
+```
 # Ejecutar todos los tests
 python -m pytest test/
 
@@ -84,23 +81,23 @@ python -m pytest test/app/test_logic.py
 
 ---
 
-## 🧪 Proyecto de Prueba
+# 🧪 Proyecto de Prueba
 
 Proyecto auxiliar que contiene un script de integración para validar el comportamiento de la `Calculadora_Propina` en un entorno externo.
 
-### Descripción
+## Descripción
 
 Simula el uso de la calculadora como si fuera un módulo importado, permitiendo verificar su funcionamiento de forma aislada e independiente del proyecto principal.
 
-### Archivo principal
+## Archivo principal
 
 | Archivo | Descripción |
 |---------|-------------|
 | `calculadora_propina.py` | Script que importa y prueba la lógica de la calculadora |
 
-### Uso
+## Uso
 
-```bash
+```
 cd "Proyecto de Prueba"
 python calculadora_propina.py
 ```
@@ -114,13 +111,12 @@ python calculadora_propina.py
 
 ---
 
-## 🛠️ Requisitos
+# 🛠️ Requisitos
 
-- Python 3.8+
-- Dependencias listadas en `requirements.txt`
+- Python 3.14
 
 ---
 
-## 📝 Licencia
+# 📝 Licencia
 
-Distribuido bajo los términos descritos en el archivo [`LICENSE`](Calculadora_Propina/LICENSE).
+Distribuido bajo los términos descritos en el archivo [`LICENSE`](Calculadora_Propina/LICENSE MIT).
