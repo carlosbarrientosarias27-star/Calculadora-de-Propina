@@ -55,7 +55,7 @@ La app permite al usuario introducir el importe de una factura y calcular autom�
 | `app/utils.py` | Funciones auxiliares reutilizables |
 | `main.py` | Punto de entrada de la aplicación |
 
-## Instalación
+# Instalación
 
 ```
 # Clona el repositorio
@@ -69,13 +69,13 @@ cd Calculadora_Propina
 python main.py
 ```
 
-## Tests
+# Tests
 
 ```
-# Ejecutar todos los tests
+## Ejecutar todos los tests
 python -m pytest test/
 
-# Ejecutar un módulo de test específico
+## Ejecutar un módulo de test específico
 python -m pytest test/app/test_logic.py
 ```
 
@@ -104,7 +104,7 @@ python calculadora_propina.py
 
 ---
 
-## 📄 Documentación adicional
+# 📄 Documentación adicional
 
 - [`docs/asistencia_ia.md`](Calculadora_Propina/docs/asistencia_ia.md) — Registro del uso de IA como asistencia en el desarrollo.
 - [`docs/Casos Edge.md`](Calculadora_Propina/docs/Casos%20Edge.md) — Casos borde identificados y cómo se gestionan.
