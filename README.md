@@ -1,122 +1,126 @@
 # 🧾 Calculadora de Propina
 
-Repositorio que contiene la aplicación **Calculadora_Propina** junto con su **Proyecto de Prueba** de integración.
+Aplicación de escritorio para calcular propinas de forma rápida y sencilla, con lógica de negocio desacoplada, interfaz de usuario dedicada y cobertura de tests completa.
 
 ---
 
-# 📁 Estructura del Repositorio
+# 📁 Estructura del Proyecto
 
 ```
-├── Calculadora_Propina/
+Calculadora_Propina/
+├── app/
+│   ├── __init__.py
+│   ├── logic.py          # Lógica de cálculo de propinas
+│   ├── ui.py             # Interfaz de usuario
+│   └── utils.py          # Utilidades y helpers
+├── docs/
+│   ├── asistencia_ia.md  # Documentación de asistencia IA
+│   └── Casos Edge.md     # Casos límite documentados
+├── test/
 │   ├── app/
 │   │   ├── __init__.py
-│   │   ├── logic.py          # Lógica de negocio (cálculo de propina)
-│   │   ├── ui.py             # Interfaz de usuario
-│   │   └── utils.py          # Utilidades auxiliares
-│   ├── docs/
-│   │   ├── asistencia_ia.md  # Documentación de asistencia con IA
-│   │   └── Casos Edge.md     # Casos borde documentados
-│   ├── test/
-│   │   └── app/
-│   │       ├── __init__.py
-│   │       ├── test_logic.py # Tests de lógica
-│   │       ├── test_ui.py    # Tests de interfaz
-│   │       └── test_utils.py # Tests de utilidades
+│   │   ├── test_logic.py  # Tests de lógica
+│   │   ├── test_ui.py     # Tests de interfaz
+│   │   └── test_utils.py  # Tests de utilidades
 │   ├── __init__.py
-│   ├── .gitignore
-│   ├── LICENSE
-│   ├── main.py               # Punto de entrada principal
-│   ├── README.md
-│   ├── requirements.txt
-│   └── test_main.py
-│
-└── Proyecto de Prueba/
-    ├── __init__.py
-    ├── calculadora_propina.py # Script de integración/prueba
-    └── Readme.md
+│   └── test_main.py       # Tests del punto de entrada
+├── __init__.py
+├── .gitignore
+├── LICENSE
+├── main.py                # Punto de entrada de la aplicación
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
-# 📦 Calculadora_Propina
+# 🚀 Instalación y Uso
 
-Aplicación principal para calcular propinas de forma sencilla e intuitiva.
+## Requisitos previos
 
-## Descripción
+- Python 3.14
 
-La app permite al usuario introducir el importe de una factura y calcular automáticamente la propina según el porcentaje deseado, con distintas opciones de reparto entre comensales.
-
-## Módulos principales
-
-| Módulo | Descripción |
-|--------|-------------|
-| `app/logic.py` | Cálculo del importe de la propina y reparto por persona |
-| `app/ui.py` | Gestión de la interfaz de usuario (entrada/salida) |
-| `app/utils.py` | Funciones auxiliares reutilizables |
-| `main.py` | Punto de entrada de la aplicación |
-
-# Instalación
+## Instalación
 
 ```
-# Clona el repositorio
-git clone <url-del-repositorio>
-cd Calculadora_Propina
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/calculadora-propina.git
+cd calculadora-propina
 
+```
 
-## Uso
+## Ejecutar la aplicación
 
 ```
 python main.py
 ```
 
-# Tests
+## Ejecutar los tests
 
 ```
-## Ejecutar todos los tests
 python -m pytest test/
-
-## Ejecutar un módulo de test específico
-python -m pytest test/app/test_logic.py
 ```
 
 ---
 
-# 🧪 Proyecto de Prueba
+## 🧩 Módulos Principales
 
-Proyecto auxiliar que contiene un script de integración para validar el comportamiento de la `Calculadora_Propina` en un entorno externo.
+| Módulo | Descripción |
+|---|---|
+| `app/logic.py` | Contiene la lógica de cálculo: porcentaje de propina, división entre comensales, totales |
+| `app/ui.py` | Gestiona la interfaz de usuario y la interacción con el usuario |
+| `app/utils.py` | Funciones auxiliares de validación y formateo |
+| `main.py` | Punto de entrada que inicializa y arranca la aplicación |
 
-## Descripción
+---
 
-Simula el uso de la calculadora como si fuera un módulo importado, permitiendo verificar su funcionamiento de forma aislada e independiente del proyecto principal.
+## 🧪 Tests
 
-## Archivo principal
+La suite de tests cubre los tres módulos principales de la aplicación:
 
-| Archivo | Descripción |
-|---------|-------------|
-| `calculadora_propina.py` | Script que importa y prueba la lógica de la calculadora |
+- **`test_logic.py`** — Verifica los cálculos de propina, redondeos y casos edge
+- **`test_ui.py`** — Comprueba el comportamiento de la interfaz
+- **`test_utils.py`** — Valida las funciones utilitarias
+- **`test_main.py`** — Prueba el flujo de arranque de la aplicación
 
-## Uso
+Los casos límite están documentados en [`docs/Casos Edge.md`](docs/Casos%20Edge.md).
+
+---
+
+# 📦 Proyecto de Prueba
+
+Versión simplificada y autocontenida de la calculadora, pensada para pruebas rápidas o integración en otros proyectos.
+
+## Estructura
 
 ```
-cd "Proyecto de Prueba"
-python calculadora_propina.py
+Proyecto_de_Prueba/
+├── __init__.py
+├── calculadora_propina.py   # Lógica completa en un único archivo
+└── Readme.md
+```
+
+## Uso rápido
+
+```python
+from calculadora_propina import calcular_propina
+
+total = 45.00
+porcentaje = 15
+propina, total_con_propina = calcular_propina(total, porcentaje)
+
+print(f"Propina: {propina:.2f} €")
+print(f"Total:   {total_con_propina:.2f} €")
 ```
 
 ---
 
-# 📄 Documentación adicional
+# 📄 Licencia
 
-- [`docs/asistencia_ia.md`](Calculadora_Propina/docs/asistencia_ia.md) — Registro del uso de IA como asistencia en el desarrollo.
-- [`docs/Casos Edge.md`](Calculadora_Propina/docs/Casos%20Edge.md) — Casos borde identificados y cómo se gestionan.
-
----
-
-# 🛠️ Requisitos
-
-- Python 3.14
+Este proyecto está bajo la licencia incluida en el archivo [LICENSE](LICENSE MIT).
 
 ---
 
-# 📝 Licencia
+# 🤖 Asistencia IA
 
-Distribuido bajo los términos descritos en el archivo [`LICENSE`](Calculadora_Propina/LICENSE MIT).
+Este proyecto contó con apoyo de inteligencia artificial durante su desarrollo. Consulta [`docs/asistencia_ia.md`](docs/asistencia_ia.md) para más detalles.
